@@ -345,6 +345,54 @@ def resources_and_training_materials(query):
     return extracted_data
 
 
+def clean_and_format_document(document_content):
+    messages = [
+        {
+            "role": "system",
+            "content": (
+                "You are a professional document formatter and editor specializing in technical and academic documents. "
+                "Your expertise is in transforming raw document content into clean, well-structured, and professionally formatted documents. "
+                "You maintain all original information while significantly improving readability, organization, and visual appeal."
+            ),
+        },
+        {
+            "role": "user",
+            "content": (
+                f"Input: {document_content}\n\n"
+                "Please format and structure this Domain-Specific AI Toolkit document to create a clean, professional, and readable resource. Follow these guidelines:\n\n"
+                "1. Create a consistent heading hierarchy using proper Markdown formatting (# for main headings, ## for subheadings, etc.)\n"
+                "2. Format all lists consistently, using either numbered or bulleted lists as appropriate for the content\n"
+                "3. Standardize the formatting for:\n"
+                "   - Citations and references\n"
+                "   - Case studies\n"
+                "   - Examples and code snippets\n"
+                "   - Tool descriptions\n"
+                "4. Create a clean table of contents with hyperlinks to each section\n"
+                "5. For each major section:\n"
+                "   - Add a brief introduction that summarizes key points\n"
+                "   - Ensure proper spacing between paragraphs and sections\n"
+                "   - Format any tables using proper Markdown table syntax\n"
+                "6. Highlight important concepts, tools, or metrics using bold or italic formatting where appropriate\n"
+                "7. Remove any redundant text, inconsistent formatting, or stray characters (like \\*)\n"
+                "8. Ensure all bullet points and numbered lists align properly\n"
+                "9. Add proper spacing before and after headings, lists, and code blocks\n"
+                "10. Create a consistent style for callouts or special notes\n\n"
+                "Please preserve all the original content and information while making these formatting improvements."
+            ),
+        }
+    ]
+
+    client = OpenAI(api_key=YOUR_API_KEY, base_url="https://api.perplexity.ai")
+    response = client.chat.completions.create(
+        model="sonar-pro",
+        messages=messages,
+    )
+
+    formatted_document = response.choices[0].message.content
+
+    return formatted_document
+
+
 # Creat & Style docx!
 
 def set_document_styles(doc):
