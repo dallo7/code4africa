@@ -103,20 +103,6 @@ app.layout = html.Div([
             html.Div(
                 [
                     "This AI tool can make mistakes. Please double-check responses",
-                    html.Div(
-                        " Please Wait", 
-                        style={
-                            'textAlign': 'right',
-                            'margin': '10px',
-                            'fontSize': '10px',
-                            'color': '#fff',
-                            'backgroundColor': '#28a745',
-                            'padding': '10px',
-                            'borderRadius': '5px',
-                            'display': 'inline-block',
-                            'cursor': 'pointer'
-                        }
-                    )
                 ],
                 style={'textAlign': 'center', 'margin': '10px', 'fontSize': '10px', 'color': '#333'}
             ),
