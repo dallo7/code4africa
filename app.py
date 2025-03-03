@@ -14,7 +14,7 @@ def generate_toolkit_document(query):
     optimisedQuery = determine_ai_toolkit_type(query)
     sections = [
         ("Introduction to AI and Context", introduction_to_ai_and_context),
-        ("AI Applications in the Domain", ai_applications_in_domain),  # Updated function name
+        ("AI Applications in the Domain", ai_applications_in_domain),  
         ("AI Readiness and Risk Assessment", ai_readiness_and_risk_assessment),
         ("Practical Guidance for AI Use", practical_guidance_for_ai_use),
         ("Ethical and Responsible AI Use", ethical_and_responsible_ai_use),
@@ -23,7 +23,7 @@ def generate_toolkit_document(query):
     ]
     doc = Document()
     set_document_styles(doc)
-    doc.add_heading("DOMAIN-SPECIFIC AI TOOLKIT", level=0)  # Updated title
+    doc.add_heading("DOMAIN-SPECIFIC AI TOOLKIT", level=0)  
     add_table_of_contents(doc)
     for title, function in sections:
         content = function(optimisedQuery)
@@ -35,7 +35,7 @@ def generate_toolkit_document(query):
 
 
 # --- Dash App Setup ---
-app = dash.Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP], title="AI Toolkit Generator")  # Updated title
+app = dash.Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP], title="AI Toolkit Generator") 
 
 server = app.server
 
@@ -45,7 +45,7 @@ auth = dash_auth.BasicAuth(
 )
 
 app.layout = html.Div([
-    html.H1("AI TOOLKIT GENERATOR", style={  # Updated header
+    html.H1("AI TOOLKIT GENERATOR", style={ 
         'textAlign': 'center',
         'color': '#333366',
         'marginBottom': '20px'
@@ -84,7 +84,7 @@ app.layout = html.Div([
                 [
                     "👋 Thinking! Generating your domain-specific AI toolkit (this will take approximately 3 minutes) 😇",  # Updated message
                     html.Div(
-                        " Please Wait",  # Updated text
+                        " Please Wait", 
                         style={
                             'textAlign': 'center',
                             'margin': '10px',
@@ -99,6 +99,27 @@ app.layout = html.Div([
                     )
                 ],
                 style={'textAlign': 'center', 'margin': '10px', 'fontSize': '18px', 'color': '#333'}
+            ),
+            html.Br(),
+            html.Div(
+                [
+                    "This AI tool can make mistakes. Please double-check responses",
+                    html.Div(
+                        " Please Wait", 
+                        style={
+                            'textAlign': 'right',
+                            'margin': '10px',
+                            'fontSize': '10px',
+                            'color': '#fff',
+                            'backgroundColor': '#28a745',
+                            'padding': '10px',
+                            'borderRadius': '5px',
+                            'display': 'inline-block',
+                            'cursor': 'pointer'
+                        }
+                    )
+                ],
+                style={'textAlign': 'center', 'margin': '10px', 'fontSize': '10px', 'color': '#333'}
             ),
             html.Div(id='progress-container', style={'margin': '20px'}),
             html.Div(id='chain-of-thought-output', style={
@@ -154,7 +175,7 @@ def update_output(n_clicks, prompt):
 
     # Simulate section generation (stages 2-8)
     section_names = [
-        "Introduction to AI and Context", "AI Applications in the Domain",  # Updated section name
+        "Introduction to AI and Context", "AI Applications in the Domain", 
         "AI Readiness and Risk Assessment", "Practical Guidance for AI Use",
         "Ethical and Responsible AI Use", "Challenges and Future Trends",
         "Resources and Training Materials"
@@ -189,9 +210,9 @@ def update_output(n_clicks, prompt):
     doc_bytes = buffer.read()
     b64 = base64.b64encode(doc_bytes).decode()
     download_link = html.A(
-        'Download Your Domain-Specific AI Toolkit',  # Updated download text
+        'Download Your Domain-Specific AI Toolkit', 
         id='download-link',
-        download="Domain_Specific_AI_Toolkit.docx",  # Updated filename
+        download="Domain_Specific_AI_Toolkit.docx", 
         href=f"data:application/vnd.openxmlformats-officedocument.wordprocessingml.document;base64,{b64}",
         target="_blank",
         style={
