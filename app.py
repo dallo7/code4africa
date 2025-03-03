@@ -116,7 +116,13 @@ app.layout = html.Div([
             }),
             html.Div(id='download-link-container', style={'margin': '20px'})
         ]
-    )
+    ),
+    html.Div(
+                [
+                    "This AI tool can make mistakes. Please double-check responses",
+                ],
+                style={'textAlign': 'center', 'margin': '10px', 'fontSize': '10px', 'color': '#333'}
+            ),
 ], style={
     'fontFamily': 'Arial',
     'width': '75%',
