@@ -79,7 +79,6 @@ app.layout = html.Div([
         id="loading-1",
         type="default",
         children=[
-            # Loader message inserted above the dynamic content
             html.Div(
                 [
                     "👋 Thinking! Generating your domain-specific AI toolkit (this will take approximately 3 minutes) 😇",  # Updated message
