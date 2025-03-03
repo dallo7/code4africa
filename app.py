@@ -100,12 +100,12 @@ app.layout = html.Div([
                 style={'textAlign': 'center', 'margin': '10px', 'fontSize': '18px', 'color': '#333'}
             ),
             html.Br(),
-            html.Div(
-                [
-                    "This AI tool can make mistakes. Please double-check responses",
-                ],
-                style={'textAlign': 'center', 'margin': '10px', 'fontSize': '10px', 'color': '#333'}
-            ),
+            # html.Div(
+            #     [
+            #         "This AI tool can make mistakes. Please double-check responses",
+            #     ],
+            #     style={'textAlign': 'center', 'margin': '10px', 'fontSize': '10px', 'color': '#333'}
+            # ),
             html.Div(id='progress-container', style={'margin': '20px'}),
             html.Div(id='chain-of-thought-output', style={
                 'whiteSpace': 'pre-line',
