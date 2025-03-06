@@ -123,6 +123,17 @@ app.layout = html.Div([
                 ],
                 style={'textAlign': 'center', 'margin': '10px', 'fontSize': '10px', 'color': '#333'}
             ),
+        # Add Font Awesome for icons
+    html.Link(
+        rel="stylesheet",
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    ),
+
+    # Footer
+    html.Footer(
+        html.P("© 2025 Toolkit Generator. Powered by CFA Sandbox AI", className="text-center text-muted mt-4 mb-2"),
+        className="mt-auto py-3"
+    )
 ], style={
     'fontFamily': 'Arial',
     'width': '75%',
