@@ -45,10 +45,10 @@ auth = dash_auth.BasicAuth(
 )
 
 app.layout = html.Div([
-    html.H1("AI TOOLKIT GENERATOR", style={ 
+    html.H2("AI TOOLKIT GENERATOR", style={ 
         'textAlign': 'center',
         'color': '#333366',
-        'marginBottom': '20px'
+        'marginBottom': '16px'
     }),
     html.Div([
         html.Label("Describe your domain and AI needs:", style={'fontWeight': 'bold', 'marginBottom': '10px'}),  # Updated label
