@@ -123,7 +123,7 @@ app.layout = html.Div([
                 ],
                 style={'textAlign': 'center', 'margin': '10px', 'fontSize': '10px', 'color': '#333'}
             ),
-        # Add Font Awesome for icons
+
     html.Link(
         rel="stylesheet",
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
