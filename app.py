@@ -9,7 +9,7 @@ import Dashauth
 from docx import Document
 from helpers import *
 
-# Create the Privacy Policy Modal
+# Create the Privacy Policy Modal.
 privacy_policy_modal = dbc.Modal(
     [
         dbc.ModalHeader(dbc.ModalTitle("AI and Data Privacy Policy for AI Applications")),
