@@ -9,6 +9,160 @@ import Dashauth
 from docx import Document
 from helpers import *
 
+# Create the Privacy Policy Modal
+privacy_policy_modal = dbc.Modal(
+    [
+        dbc.ModalHeader(dbc.ModalTitle("AI and Data Privacy Policy for AI Applications")),
+        dbc.ModalBody([
+            html.P("Effective Date: 17/03/2025", className="text-muted small"),
+            html.P("Last Updated: 17/03/2025", className="text-muted small mb-4"),
+
+            html.H5("Introduction", className="mt-4"),
+            html.P([
+                "At Code for Africa (CfA), we are committed to ensuring the responsible and ethical use of",
+                " Artificial Intelligence (AI) and data in all our applications. This AI and Data Privacy Policy",
+                " outlines the principles, practices, and safeguards we implement to protect user privacy,",
+                " ensure transparency, and uphold ethical standards in the development and deployment of AI technologies."
+            ]),
+            html.P([
+                "This policy applies to all AI systems, tools, and applications developed, maintained, or utilized",
+                " by Code for Africa, including but not limited to machine learning models, natural language",
+                " processing systems, recommendation engines, and automated decision-making systems."
+            ]),
+            html.P([
+                "For inquiries, please contact us at:",
+                html.Br(),
+                html.Strong("Code for Africa Secretariat"),
+                html.Br(),
+                "112 Loop Street, Cape Town, Western Cape, 8000, South Africa",
+                html.Br(),
+                "South Africa NPO Number: 168-092"
+            ], className="border-start border-primary ps-3 my-4"),
+
+            html.H5("1. Purpose and Scope", className="mt-4"),
+            html.P("The purpose of this policy is to:"),
+            html.Ul([
+                html.Li("Protect the privacy and security of personal data processed by AI systems."),
+                html.Li([
+                    "CfA commits to adhering to:",
+                    html.Ul([
+                        html.Li("GDPR (EU General Data Protection Regulation)."),
+                        html.Li([
+                            "Africa-specific laws:",
+                            html.Ul([
+                                html.Li("Kenya's Data Protection Act (2019)."),
+                                html.Li("Nigeria's NDPR (Nigeria Data Protection Regulation)."),
+                                html.Li("South Africa's POPIA (Protection of Personal Information Act)."),
+                                html.Li("Other regional laws where CfA operates."),
+                            ])
+                        ]),
+                        html.Li(
+                            "Global AI Ethics Frameworks: OECD AI Principles, UNESCO Recommendations on AI Ethics."),
+                    ])
+                ]),
+                html.Li("Promote transparency, fairness, and accountability in the use of AI."),
+                html.Li("Minimize risks associated with bias, discrimination, and misuse of AI technologies."),
+            ]),
+            html.P("This policy applies to:"),
+            html.Ul([
+                html.Li(
+                    "All employees, contractors, and third-party vendors involved in the design, development, deployment, or maintenance of AI systems."),
+                html.Li("All users and stakeholders interacting with AI applications developed by Code for Africa."),
+            ]),
+
+            html.H5("2. Key Principles", className="mt-4"),
+            html.H6("2.1. Lawfulness, Transparency, and Accountability", className="mt-3"),
+            html.Ul([
+                html.Li([
+                    html.Strong("Lawfulness: "),
+                    "We will only process personal data in accordance with applicable laws and regulations. AI systems will be designed to comply with legal requirements, including obtaining explicit consent where necessary."
+                ]),
+                html.Li([
+                    html.Strong("Transparency: "),
+                    "Users will be informed about how their data is collected, processed, and used by AI systems. Clear and accessible explanations will be provided regarding the purpose, scope, and impact of AI-driven decisions."
+                ]),
+                html.Li([
+                    html.Strong("Accountability: "),
+                    "Code for Africa takes full responsibility for the ethical and lawful use of AI. Regular audits and assessments will be conducted to ensure compliance with this policy."
+                ]),
+            ]),
+
+            # Include more sections as needed - truncated for brevity
+            html.H6("2.2. Data Minimization", className="mt-3"),
+            html.P(
+                "AI systems will only collect and process data that is strictly necessary for the intended purpose. Excessive or irrelevant data collection will be avoided to minimize privacy risks."),
+
+            html.H6("2.3. Purpose Limitation", className="mt-3"),
+            html.P(
+                "Personal data collected for AI applications will only be used for the specific purposes disclosed to users at the time of collection. Any secondary use of data will require additional consent or justification."),
+
+            html.H5("10. Contact Information", className="mt-4"),
+            html.P("For questions, concerns, or requests related to this policy, please contact:"),
+            html.P([
+                html.Strong("Data Protection Officer (DPO):"),
+                html.Br(),
+                "Email: dpo@codeforafrica.org",
+                html.Br(),
+                "Address: Code for Africa Secretariat",
+                html.Br(),
+                "112 Loop Street, Cape Town, Western Cape, 8000, South Africa",
+                html.Br(),
+                "South Africa NPO Number: 168-092"
+            ], className="border-start border-primary ps-3 my-3"),
+
+            html.H5("Conclusion", className="mt-4"),
+            html.P([
+                "Code for Africa is dedicated to leveraging AI responsibly and ethically while prioritizing user privacy and data protection.",
+                " This policy reflects our commitment to transparency, fairness, and accountability in all AI-related activities.",
+                " By adhering to these principles, we aim to build trust with our users and contribute positively to society."
+            ]),
+
+            html.Hr(),
+            html.P([
+                html.Strong("Acknowledgment:"),
+                html.Br(),
+                "By using our AI applications, you acknowledge that you have read, understood, and agreed to the terms of this AI and Data Privacy Policy."
+            ], className="small text-muted"),
+        ], style={"maxHeight": "70vh", "overflowY": "auto"}),
+        dbc.ModalFooter(
+            dbc.Button("Close", id="close-privacy-modal", className="ms-auto")
+        ),
+    ],
+    id="privacy-policy-modal",
+    size="lg",
+    scrollable=True,
+)
+
+# Create Footer with Privacy Policy Button
+footer = dbc.Row([
+    dbc.Col([
+        html.Footer([
+            html.P("©️ 2025 Toolkit Generator. Powered by CFA Sandbox AI",
+                   className="text-center text-muted mt-4"),
+            html.Div([
+                dbc.Button("Report Issue",
+                           color="link",
+                           className="text-muted",
+                           href="#",
+                           id="report-issue-btn"),
+                html.Span(" | "),
+                dbc.Button("Privacy Policy",
+                           color="link",
+                           className="text-muted",
+                           id="privacy-policy-btn")
+            ], className="text-center small")
+        ], className="py-4")
+    ])
+])
+
+# Combine footer and modal
+footer_with_modal = html.Div([
+    footer,
+    privacy_policy_modal
+])
+
+
+
 # --- Document Generation Function ---
 def generate_toolkit_document(query):
     optimisedQuery = determine_ai_toolkit_type(query)
@@ -130,10 +284,7 @@ app.layout = html.Div([
     ),
 
     # Footer
-    html.Footer(
-        html.P("© 2025 Toolkit Generator. Powered by CFA Sandbox AI", className="text-center text-muted mt-4 mb-2"),
-        className="mt-auto py-3"
-    )
+footer_with_modal
 ], style={
     'fontFamily': 'Arial',
     'width': '75%',
@@ -228,6 +379,16 @@ def update_output(n_clicks, prompt):
     )
 
     return progress_updates, "".join(thought_process), download_link, False
+
+@callback(
+    Output("privacy-policy-modal", "is_open"),
+    [Input("privacy-policy-btn", "n_clicks"), Input("close-privacy-modal", "n_clicks")],
+    [State("privacy-policy-modal", "is_open")],
+)
+def toggle_modal(n1, n2, is_open):
+    if n1 or n2:
+        return not is_open
+    return is_open
 
 
 if __name__ == '__main__':
