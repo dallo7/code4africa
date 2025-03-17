@@ -380,7 +380,7 @@ def update_output(n_clicks, prompt):
 
     return progress_updates, "".join(thought_process), download_link, False
 
-@callback(
+@app.callback(
     Output("privacy-policy-modal", "is_open"),
     [Input("privacy-policy-btn", "n_clicks"), Input("close-privacy-modal", "n_clicks")],
     [State("privacy-policy-modal", "is_open")],
