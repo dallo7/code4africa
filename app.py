@@ -199,7 +199,7 @@ auth = dash_auth.BasicAuth(
 )
 
 app.layout = html.Div([
-    html.H3("AI TOOLKIT GENERATOR", style={ 
+    html.H3("TOOLKIT GENERATOR", style={ 
         'textAlign': 'center',
         'color': '#333366',
         'marginBottom': '16px'
