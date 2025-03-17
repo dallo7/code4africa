@@ -189,7 +189,7 @@ def generate_toolkit_document(query):
 
 
 # --- Dash App Setup ---
-app = dash.Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP], title="AI Toolkit Generator") 
+app = dash.Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP], title="Toolkit Generator") 
 
 server = app.server
 
