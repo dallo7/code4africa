@@ -8,9 +8,6 @@ import dash_auth
 import Dashauth
 from docx import Document
 from helpers import *
-
-# Create the Privacy Policy Modal.
-privacy_policy_modal = import dash_bootstrap_components as dbc
 from dash import html
 
 privacy_policy_modal = dbc.Modal(
