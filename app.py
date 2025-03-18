@@ -10,123 +10,288 @@ from docx import Document
 from helpers import *
 
 # Create the Privacy Policy Modal.
+privacy_policy_modal = import dash_bootstrap_components as dbc
+from dash import html
+
 privacy_policy_modal = dbc.Modal(
     [
         dbc.ModalHeader(dbc.ModalTitle("AI and Data Privacy Policy for AI Applications")),
-        dbc.ModalBody([
-            html.P("Effective Date: 17/03/2025", className="text-muted small"),
-            html.P("Last Updated: 17/03/2025", className="text-muted small mb-4"),
-
-            html.H5("Introduction", className="mt-4"),
-            html.P([
-                "At Code for Africa (CfA), we are committed to ensuring the responsible and ethical use of",
-                " Artificial Intelligence (AI) and data in all our applications. This AI and Data Privacy Policy",
-                " outlines the principles, practices, and safeguards we implement to protect user privacy,",
-                " ensure transparency, and uphold ethical standards in the development and deployment of AI technologies."
-            ]),
-            html.P([
-                "This policy applies to all AI systems, tools, and applications developed, maintained, or utilized",
-                " by Code for Africa, including but not limited to machine learning models, natural language",
-                " processing systems, recommendation engines, and automated decision-making systems."
-            ]),
-            html.P([
-                "For inquiries, please contact us at:",
-                html.Br(),
-                html.Strong("Code for Africa Secretariat"),
-                html.Br(),
-                "112 Loop Street, Cape Town, Western Cape, 8000, South Africa",
-                html.Br(),
-                "South Africa NPO Number: 168-092"
-            ], className="border-start border-primary ps-3 my-4"),
-
-            html.H5("1. Purpose and Scope", className="mt-4"),
-            html.P("The purpose of this policy is to:"),
-            html.Ul([
-                html.Li("Protect the privacy and security of personal data processed by AI systems."),
-                html.Li([
-                    "CfA commits to adhering to:",
-                    html.Ul([
-                        html.Li("GDPR (EU General Data Protection Regulation)."),
-                        html.Li([
-                            "Africa-specific laws:",
-                            html.Ul([
-                                html.Li("Kenya's Data Protection Act (2019)."),
-                                html.Li("Nigeria's NDPR (Nigeria Data Protection Regulation)."),
-                                html.Li("South Africa's POPIA (Protection of Personal Information Act)."),
-                                html.Li("Other regional laws where CfA operates."),
-                            ])
-                        ]),
+        dbc.ModalBody(
+            [
+                html.P("Effective Date: 17/03/2025", className="text-muted small"),
+                html.P("Last Updated: 17/03/2025", className="text-muted small mb-4"),
+                html.H5("Introduction", className="mt-4"),
+                html.P(
+                    [
+                        "At Code for Africa (CfA), we are committed to ensuring the responsible and ethical use of",
+                        " Artificial Intelligence (AI) and data in all our applications. This AI and Data Privacy Policy",
+                        " outlines the principles, practices, and safeguards we implement to protect user privacy,",
+                        " ensure transparency, and uphold ethical standards in the development and deployment of AI technologies.",
+                    ]
+                ),
+                html.P(
+                    [
+                        "This policy applies to all AI systems, tools, and applications developed, maintained, or utilized",
+                        " by Code for Africa, including but not limited to machine learning models, natural language",
+                        " processing systems, recommendation engines, and automated decision-making systems.",
+                    ]
+                ),
+                html.P(
+                    [
+                        "For inquiries, please contact us at:",
+                        html.Br(),
+                        html.Strong("Code for Africa Secretariat"),
+                        html.Br(),
+                        "112 Loop Street, Cape Town, Western Cape, 8000, South Africa",
+                        html.Br(),
+                        "South Africa NPO Number: 168-092",
+                    ],
+                    className="border-start border-primary ps-3 my-4",
+                ),
+                html.H5("1. Purpose and Scope", className="mt-4"),
+                html.P("The purpose of this policy is to:"),
+                html.Ul(
+                    [
+                        html.Li("Protect the privacy and security of personal data processed by AI systems."),
                         html.Li(
-                            "Global AI Ethics Frameworks: OECD AI Principles, UNESCO Recommendations on AI Ethics."),
+                            [
+                                "CfA commits to adhering to:",
+                                html.Ul(
+                                    [
+                                        html.Li("GDPR (EU General Data Protection Regulation)."),
+                                        html.Li(
+                                            [
+                                                "Africa-specific laws:",
+                                                html.Ul(
+                                                    [
+                                                        html.Li("Kenya’s Data Protection Act (2019)."),
+                                                        html.Li("Nigeria’s NDPR (Nigeria Data Protection Regulation)."),
+                                                        html.Li(
+                                                            "South Africa’s POPIA (Protection of Personal Information Act)."
+                                                        ),
+                                                        html.Li("Other regional laws where CfA operates."),
+                                                    ]
+                                                ),
+                                            ]
+                                        ),
+                                        html.Li(
+                                            "Global AI Ethics Frameworks: OECD AI Principles, UNESCO Recommendations on AI Ethics."
+                                        ),
+                                    ]
+                                ),
+                            ]
+                        ),
+                        html.Li("Promote transparency, fairness, and accountability in the use of AI."),
+                        html.Li("Minimize risks associated with bias, discrimination, and misuse of AI technologies."),
+                    ]
+                ),
+                html.P("This policy applies to:"),
+                html.Ul(
+                    [
+                        html.Li(
+                            "All employees, contractors, and third-party vendors involved in the design, development, deployment, or maintenance of AI systems."
+                        ),
+                        html.Li(
+                            "All users and stakeholders interacting with AI applications developed by Code for Africa."
+                        ),
+                    ]
+                ),
+                html.H5("2. Key Principles", className="mt-4"),
+                html.H6("2.1. Lawfulness, Transparency, and Accountability", className="mt-3"),
+                html.Ul(
+                    [
+                        html.Li(
+                            [
+                                html.Strong("Lawfulness: "),
+                                "We will only process personal data in accordance with applicable laws and regulations. AI systems will be designed to comply with legal requirements, including obtaining explicit consent where necessary.",
+                            ]
+                        ),
+                        html.Li(
+                            [
+                                html.Strong("Transparency: "),
+                                "Users will be informed about how their data is collected, processed, and used by AI systems. Clear and accessible explanations will be provided regarding the purpose, scope, and impact of AI-driven decisions.",
+                            ]
+                        ),
+                        html.Li(
+                            [
+                                html.Strong("Accountability: "),
+                                "Code for Africa takes full responsibility for the ethical and lawful use of AI. Regular audits and assessments will be conducted to ensure compliance with this policy.",
+                            ]
+                        ),
+                    ]
+                ),
+                html.H6("2.2. Data Minimization", className="mt-3"),
+                html.P(
+                    "AI systems will only collect and process data that is strictly necessary for the intended purpose. Excessive or irrelevant data collection will be avoided to minimize privacy risks."
+                ),
+                html.H6("2.3. Purpose Limitation", className="mt-3"),
+                html.P(
+                    "Personal data collected for AI applications will only be used for the specific purposes disclosed to users at the time of collection. Any secondary use of data will require additional consent or justification."
+                ),
+                html.H6("2.4. Accuracy and Quality", className="mt-3"),
+                html.P(
+                    "We will ensure that data used in AI systems is accurate, up-to-date, and relevant. Mechanisms will be in place to correct inaccuracies and address outdated information promptly."
+                ),
+                html.H6("2.5. Security and Confidentiality", className="mt-3"),
+                html.P(
+                    [
+                        "Robust technical and organizational measures will be implemented to protect personal data from unauthorized access, loss, alteration, or disclosure.  These include encryption, access controls, and regular security audits."
+                    ]
+                ),
+                html.H6("2.6. Fairness and Non-Discrimination", className="mt-3"),
+                html.P(
+                    [
+                        "AI systems will be designed to avoid bias, discrimination, or unfair treatment of individuals or groups. Regular testing and monitoring will be conducted to identify and mitigate any unintended biases."
+                    ]
+                ),
+                html.H6("2.7. Human Oversight", className="mt-3"),
+                html.P(
+                    [
+                       "AI systems will incorporate mechanisms for human oversight, especially in high-stakes scenarios such as healthcare, finance, or law enforcement. Automated decisions will be subject to review and appeal processes."
+                    ]
+                ),
+
+                html.H5("3. Data Collection and Processing", className="mt-4"),
+                html.H6("3.1. Types of Data Collected", className="mt-3"),
+                html.P(
+                    [
+                       "AI systems may collect and process the following types of data:",
+                       html.Ul([
+                           html.Li("Personal Identifiable Information (PII): Names, email addresses, phone numbers, etc."),
+                           html.Li("Sensitive Data: Health records, financial information, biometric data, etc."),
+                           html.Li("Behavioral Data: User interactions, preferences, and usage patterns."),
+                           html.Li("Inferred Data: Insights derived from analyzing raw data (e.g., predictions, recommendations).")
+                       ])
+                    ]
+                ),
+
+                html.H6("3.2. Consent and Opt-Out", className="mt-3"),
+                html.P(
+                    [
+                       "Users will be provided with clear options to opt-in or opt-out of data collection and processing activities.",
+                       html.Br(),
+                       "Explicit consent will be obtained before collecting sensitive data or using data for purposes beyond the original intent."
+                    ]
+                ),
+
+                html.H6("3.3. Anonymization and Pseudonymization", className="mt-3"),
+                html.P("Where possible, personal data will be anonymized or pseudonymized to reduce the risk of re-identification. Aggregated data may be used for analysis without compromising individual privacy."),
+
+                html.H6("3.4. Retention and Deletion", className="mt-3"),
+                html.P("Personal data will only be retained for as long as necessary to fulfill the stated purpose. Users will have the right to request the deletion of their data in accordance with applicable laws."),
+
+
+                html.H5("4. Ethical Use of AI", className="mt-4"),
+                html.H6("4.1. Bias Mitigation", className="mt-3"),
+                html.P([
+                    "AI models will be trained on diverse and representative datasets to minimize bias.",
+                    html.Br(),
+                    "Regular audits will be conducted to identify and address any discriminatory outcomes."
+                ]),
+                html.H6("4.2. Explainability", className="mt-3"),
+                html.P("AI systems will provide explanations for their decisions and recommendations, especially in critical domains like healthcare, education, and employment. Efforts will be made to ensure that these explanations are understandable to non-technical users."),
+                html.H6("4.3. Impact Assessments", className="mt-3"),
+                html.P("Before deploying AI systems, comprehensive impact assessments will be conducted to evaluate potential risks to privacy, fairness, and societal well-being."),
+                html.H6("4.4. Prohibition of Harmful Use", className="mt-3"),
+                 html.P("AI systems will not be used for purposes that could cause harm, violate human rights, or undermine democratic values. Examples include surveillance, manipulation, or exploitation."),
+
+                html.H5("5. Third-Party Vendors and Partners", className="mt-4"),
+                html.H6("5.1. Vendor Compliance", className="mt-3"),
+                html.P([
+                    "Third-party vendors and partners involved in AI development or data processing must adhere to this policy and demonstrate compliance with relevant data protection laws.",
+                    html.Br(),
+                    "Contracts with vendors will include clauses requiring adherence to privacy and security standards."
+                ]),
+                html.H6("5.2. Data Sharing", className="mt-3"),
+                html.P("Personal data will not be shared with third parties without explicit user consent, except where required by law or for legitimate business purposes (e.g., fraud prevention)."),
+
+                html.H5("6. User Rights", className="mt-4"),
+                html.P([
+                    "Users have the following rights regarding their personal data:",
+                    html.Ul([
+                        html.Li("Right to Access: Users can request access to their personal data and obtain information about how it is being processed."),
+                        html.Li("Right to Rectification: Users can request corrections to inaccurate or incomplete data."),
+                        html.Li("Right to Erasure: Users can request the deletion of their personal data."),
+                        html.Li("Right to Object: Users can object to the processing of their data for specific purposes."),
+                        html.Li("Right to Data Portability: Users can request a copy of their data in a machine-readable format.")
+                    ]),
+                    "Requests related to these rights will be addressed within [timeframe, e.g., 30 days] and free of charge, unless the request is excessive or unfounded."  #Added timeframe placeholder
+                ]),
+
+                html.H5("7. Security Measures", className="mt-4"),
+                html.P([
+                    "To safeguard personal data and AI systems, we implement the following measures:",
+                    html.Ul([
+                        html.Li("Encryption: Data is encrypted during storage and transmission."),
+                        html.Li("Access Controls: Only authorized personnel have access to personal data and AI systems."),
+                        html.Li("Regular Audits: Security audits and vulnerability assessments are conducted periodically."),
+                        html.Li("Incident Response: A robust incident response plan is in place to address data breaches or system failures.")
                     ])
                 ]),
-                html.Li("Promote transparency, fairness, and accountability in the use of AI."),
-                html.Li("Minimize risks associated with bias, discrimination, and misuse of AI technologies."),
-            ]),
-            html.P("This policy applies to:"),
-            html.Ul([
-                html.Li(
-                    "All employees, contractors, and third-party vendors involved in the design, development, deployment, or maintenance of AI systems."),
-                html.Li("All users and stakeholders interacting with AI applications developed by Code for Africa."),
-            ]),
 
-            html.H5("2. Key Principles", className="mt-4"),
-            html.H6("2.1. Lawfulness, Transparency, and Accountability", className="mt-3"),
-            html.Ul([
-                html.Li([
-                    html.Strong("Lawfulness: "),
-                    "We will only process personal data in accordance with applicable laws and regulations. AI systems will be designed to comply with legal requirements, including obtaining explicit consent where necessary."
+                html.H5("8. Training and Awareness", className="mt-4"),
+                html.P([
+                    "All employees and stakeholders involved in AI development and deployment will receive training on:",
+                    html.Ul([
+                        html.Li("Data protection laws and regulations."),
+                        html.Li("Ethical AI principles and best practices."),
+                        html.Li("Privacy-by-design methodologies."),
+                        html.Li("Incident reporting and response procedures.")
+                    ])
                 ]),
-                html.Li([
-                    html.Strong("Transparency: "),
-                    "Users will be informed about how their data is collected, processed, and used by AI systems. Clear and accessible explanations will be provided regarding the purpose, scope, and impact of AI-driven decisions."
+
+                html.H5("9. Monitoring and Compliance", className="mt-4"),
+                html.H6("9.1. Regular Audits", className="mt-3"),
+                html.P([
+                    "Internal and external audits will be conducted to ensure compliance with this policy and applicable laws.",
+                    html.Br(),
+                    "Findings from audits will be used to improve AI systems and data handling practices."
                 ]),
-                html.Li([
-                    html.Strong("Accountability: "),
-                    "Code for Africa takes full responsibility for the ethical and lawful use of AI. Regular audits and assessments will be conducted to ensure compliance with this policy."
+
+                html.H6("9.2. Reporting Violations", className="mt-3"),
+                html.P([
+                    "Any violations of this policy must be reported immediately to the designated Data Protection Officer (DPO) or equivalent authority.",
+                    html.Br(),
+                    "Whistleblower protections will be provided to encourage reporting without fear of retaliation."
                 ]),
-            ]),
 
-            # Include more sections as needed - truncated for brevity
-            html.H6("2.2. Data Minimization", className="mt-3"),
-            html.P(
-                "AI systems will only collect and process data that is strictly necessary for the intended purpose. Excessive or irrelevant data collection will be avoided to minimize privacy risks."),
-
-            html.H6("2.3. Purpose Limitation", className="mt-3"),
-            html.P(
-                "Personal data collected for AI applications will only be used for the specific purposes disclosed to users at the time of collection. Any secondary use of data will require additional consent or justification."),
-
-            html.H5("10. Contact Information", className="mt-4"),
-            html.P("For questions, concerns, or requests related to this policy, please contact:"),
-            html.P([
-                html.Strong("Data Protection Officer (DPO):"),
-                html.Br(),
-                "Email: dpo@codeforafrica.org",
-                html.Br(),
-                "Address: Code for Africa Secretariat",
-                html.Br(),
-                "112 Loop Street, Cape Town, Western Cape, 8000, South Africa",
-                html.Br(),
-                "South Africa NPO Number: 168-092"
-            ], className="border-start border-primary ps-3 my-3"),
-
-            html.H5("Conclusion", className="mt-4"),
-            html.P([
-                "Code for Africa is dedicated to leveraging AI responsibly and ethically while prioritizing user privacy and data protection.",
-                " This policy reflects our commitment to transparency, fairness, and accountability in all AI-related activities.",
-                " By adhering to these principles, we aim to build trust with our users and contribute positively to society."
-            ]),
-
-            html.Hr(),
-            html.P([
-                html.Strong("Acknowledgment:"),
-                html.Br(),
-                "By using our AI applications, you acknowledge that you have read, understood, and agreed to the terms of this AI and Data Privacy Policy."
-            ], className="small text-muted"),
-        ], style={"maxHeight": "70vh", "overflowY": "auto"}),
-        dbc.ModalFooter(
-            dbc.Button("Close", id="close-privacy-modal", className="ms-auto")
+                html.H5("10. Contact Information", className="mt-4"),
+                html.P("For questions, concerns, or requests related to this policy, please contact:"),
+                html.P(
+                    [
+                        html.Strong("Data Protection Officer (DPO):"),
+                        html.Br(),
+                        "Email: dpo@codeforafrica.org",
+                        html.Br(),
+                        "Address: Code for Africa Secretariat",
+                        html.Br(),
+                        "112 Loop Street, Cape Town, Western Cape, 8000, South Africa",
+                        html.Br(),
+                        "South Africa NPO Number: 168-092",
+                    ],
+                    className="border-start border-primary ps-3 my-3",
+                ),
+                html.H5("Conclusion", className="mt-4"),
+                html.P(
+                    [
+                        "Code for Africa is dedicated to leveraging AI responsibly and ethically while prioritizing user privacy and data protection.",
+                        " This policy reflects our commitment to transparency, fairness, and accountability in all AI-related activities.",
+                        " By adhering to these principles, we aim to build trust with our users and contribute positively to society.",
+                    ]
+                ),
+                html.Hr(),
+                html.P(
+                    [
+                        html.Strong("Acknowledgment:"),
+                        html.Br(),
+                        "By using our AI applications, you acknowledge that you have read, understood, and agreed to the terms of this AI and Data Privacy Policy.",
+                    ],
+                    className="small text-muted",
+                ),
+            ],
+            style={"maxHeight": "70vh", "overflowY": "auto"},
         ),
+        dbc.ModalFooter(dbc.Button("Close", id="close-privacy-modal", className="ms-auto")),
     ],
     id="privacy-policy-modal",
     size="lg",
